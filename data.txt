@@ -1,6 +1,6 @@
 {
 	"lastUpdated":"1 January 2017",
-	"provider":"bbc",
+	"provider":"BBC",
 	"newsitems":[
 		{
 			"theme":"home",
