@@ -1,2 +1,0 @@
-# CEEFAX
-Ceefax remake
