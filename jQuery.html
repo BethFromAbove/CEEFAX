@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-<p id="date"></p>
-
-<h1 id="header"></h1>
-
-<p id="demo"></p>
-
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+$(document).ready(function(){
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var myObj = JSON.parse(this.responseText);
+        $.getJSON("data.json", function(result){
 
-		var myObj, i, j, x = "";
+        var myObj=result;
 
-for (i in myObj.newsItems) {
-    x += "<h2>" + myObj.newsItems[i].title + "</h2>";
-    x += myObj.newsItems[i].intro + "<br>";
-    x += myObj.newsItems[i].story + "<br>";  
-    }
-
-    document.getElementById("date").innerHTML = "Last updated: " + myObj.lastUpdated;
-    document.getElementById("header").innerHTML = myObj.provider;
-    document.getElementById("demo").innerHTML = x;
-
-    }
-  };
-  xhttp.open("GET", "data.json", true);
-  xhttp.send();
-
+        	    
+        	    $.each(myObj.newsItems, function(i, field){
+                $("h2").append(field.title + "<br>");
+                $("div").append(field.intro + "<br>");
+                $("div").append(field.story + "<br>");
+            });
+        });
+});
 </script>
+
+</head>
+<body>
+<h2 ></h2>
+<div></div>
 
 </body>
 </html>
