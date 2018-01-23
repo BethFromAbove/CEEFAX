@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-
-//$(document).ready(function(){
-
-    $.getJSON("data.json", function(result){
-
-    	myObj = result;
-
-function timedText() {
-    setTimeout(myTimeout1, 2000) 
-    setTimeout(myTimeout2, 4000) 
-    setTimeout(myTimeout3, 6000) 
-}
-function myTimeout1() {
-    document.getElementById("demo").innerHTML = myObj.newsItems[0].title + "<br>" + myObj.newsItems[0].intro + "<br>" + myObj.newsItems[0].story + "<br>";
-}
-function myTimeout2() {
-    document.getElementById("demo").innerHTML = "4 seconds";
-}
-function myTimeout3() {
-    document.getElementById("demo").innerHTML = "6 seconds";
-}
-});
-//});
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    
+    $(document).ready(function(){
+        var i = 0;
+        setInterval(function(){
+            $.getJSON("data.json", function(result){
+                var myObj = result;
+            
+                console.log(i)
+             
+                var numResults = myObj.newsItems.length;
+                var html = "";
+                
+                html = html + "<h2>" + myObj.newsItems[i % numResults].title + "</h2>";
+                html = html + "<p>" + myObj.newsItems[i % numResults].intro + "<br>";
+                html = html + myObj.newsItems[i % numResults].story + "<p>";
+                document.getElementById("demo").innerHTML = html;
+                i++;
+            });
+        }, 3000);
+        
+    });
+    
 </script>
-
 </head>
 <body>
-<button onclick="timedText()">Click here</button>
 
-<p id="demo"></p>
+<div id="demo"></div>
 
 </body>
 </html>
