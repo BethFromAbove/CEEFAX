@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+body {
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    text-align: left;
+    font-family: Lucida Console;
+}
+
+p {
+    color: white;
+    font-family: Lucida Console;
+    font-size: 20px;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     
@@ -13,7 +30,7 @@
             	var numResults = myObj.newsItems.length;
 
             	document.getElementById("date").innerHTML = myObj.lastUpdated;
-            	document.getElementById("header").innerHTML = myObj.provider + " - " + myObj.newsItems[i % numResults].theme;
+            	document.getElementById("header").innerHTML = myObj.newsItems[i % numResults].theme;
                 console.log(i)
              
                 
@@ -33,6 +50,7 @@
 </head>
 <body>
 <p id="date"></p>
+<p><img src="Ceefaxtop.png" alt="Ceefax"></p>
 <h1 id="header"></h1>	
 
 <div id="demo"></div>
