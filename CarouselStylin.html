@@ -29,7 +29,7 @@ p {
                 var myObj = result;
             	var numResults = myObj.newsItems.length;
 
-            	document.getElementById("date").innerHTML = myObj.lastUpdated;
+            	document.getElementById("date").innerHTML = myObj.newsItems[i % numResults].pageid + " CEEFAX " + Date() + "<br>" + "Last Updated: " + myObj.lastUpdated;
             	document.getElementById("header").innerHTML = myObj.newsItems[i % numResults].theme;
                 console.log(i)
              
